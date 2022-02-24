@@ -19,5 +19,6 @@ public class AverageAgeOfStudents {
             System.out.println("exception");
         }
 
+        
     }
 }
