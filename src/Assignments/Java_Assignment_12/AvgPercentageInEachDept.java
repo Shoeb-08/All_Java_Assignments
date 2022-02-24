@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class AvgPercentageInEachDept {
     public static void avgPercentageInEachDept(List<Student> students)
     {
+        try{
         Map<String,Long> result = students.stream().map(s->s.branch).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
         double chem=students.stream().filter(s->s.branch.equals("Chemical")).mapToDouble(i -> i.percentage).sum();
         System.out.println("Avg Percentage in Chemical Depatment "+chem/result.get("Chemical"));
@@ -23,7 +24,10 @@ public class AvgPercentageInEachDept {
         System.out.println("Avg Percentage in Electronic Depatment "+ece/result.get("Electronic"));
         double sec=students.stream().filter(s->s.branch.equals("Security")).mapToDouble(i -> i.percentage).sum();
         System.out.println("Avg Percentage in SEcurity Depatment "+sec/result.get("Security"));
-
+        }
+        catch(Exception e){
+            System.out.println("exception");
+        }
 
     }
 }
